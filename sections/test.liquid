@@ -1,0 +1,41 @@
+<div>
+
+  <h1>{{ section.settings.header }}</h1>
+
+  <div>
+    {% for product in section.settings.product_list %}
+      <div>
+        <img src={{product.featured_image | img_url: '500x500'}} alt="" />
+        <h2>{{ product.title }}</h2>
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "For test",
+
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Title"
+      }, {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Products",
+        "limit": 10
+      }
+    ],
+
+    "presets": [
+      {
+        "category": "Custom",
+        "name": "For test"
+      }
+    ]
+
+  }
+{% endschema %}
